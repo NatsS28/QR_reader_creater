@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+
+    <link rel="stylesheet" href="./css/new.css">
+
+
+
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Enter some text to Generate QR</h2>
+        <form onsubmit="generate();return false;">
+            <input type="text" id="qr" name="">
+        </form>
+
+        <div id="qrResult" style="height: 100px;width: 100px">
+        </div>
+        
+        <form method="get" action="./scanner.html">
+            <button class="learn-more">Proceed</button>
+        </form>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var qrcode = new QRCode(document.getElementById('qrResult'), {
+            width: 100,
+            height: 100
+        });
+
+        function generate() {
+            var message = document.getElementById('qr');
+            if (!message.value) {
+                alert("Input a text");
+                message.focus();
+                return;
+            }
+
+            qrcode.makeCode(message.value);
+        }
+
+    </script>
+
+
+
+
+
+
+
+    <!--
+
+    <div class="container">
+        <input type="file" id="file">
+
+        <p> QR Content:<span id="content"></span></p>
+
+
+    </div>
+
+   
+    <script type="text/javascript" src="js/qrReader.js"></script>
+
+
+
+-->
+</body>
+
+</html>
